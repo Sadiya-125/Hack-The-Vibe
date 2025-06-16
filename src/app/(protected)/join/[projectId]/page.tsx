@@ -20,15 +20,22 @@ const JoinHandler = async (props: Props) => {
   const client = await clerkClient();
   const user = await client.users.getUser(userId);
   if (!dbUser) {
-    await db.user.create({
-      data: {
-        id: userId,
+    const existingUser = await db.user.findUnique({
+      where: {
         emailAddress: user.emailAddresses[0]!.emailAddress,
-        imageUrl: user.imageUrl,
-        firstName: user.firstName,
-        lastName: user.lastName,
       },
     });
+    if (!existingUser) {
+      await db.user.create({
+        data: {
+          id: userId,
+          emailAddress: user.emailAddresses[0]!.emailAddress,
+          imageUrl: user.imageUrl,
+          firstName: user.firstName,
+          lastName: user.lastName,
+        },
+      });
+    }
   }
   const project = await db.project.findUnique({
     where: {
