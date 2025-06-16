@@ -139,6 +139,4 @@ We welcome contributions! Please feel free to submit a Pull Request.
 For questions or support, please contact the project owner at:
 https://sadiya-maheen-siddiqui.vercel.app/
 
----
-
 Built with ❤️ by Team Tech Champions for Hack the Vibe 2025
