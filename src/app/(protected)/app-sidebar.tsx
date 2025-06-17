@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -180,6 +181,20 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      {open && (
+        <SidebarFooter>
+          <div className="text-muted-foreground p-4 text-center text-sm">
+            Made with ❤️ by{" "}
+            <Link
+              href="https://github.com/Sadiya-125"
+              target="_blank"
+              className="text-primary hover:underline"
+            >
+              Sadiya
+            </Link>
+          </div>
+        </SidebarFooter>
+      )}
     </Sidebar>
   );
 }
